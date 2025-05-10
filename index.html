@@ -71,4 +71,200 @@
     });
   </script>
 </body>
+</html>@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+body {
+    font-family: 'Noto Sans JP', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    color: #222;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#darkModeToggle {
+    background: linear-gradient(90deg, #e66465, #9198e5);
+    border: none;
+    padding: 0.7em 1.5em;
+    border-radius: 24px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+nav ul {
+    background: #444;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Gallery styles */
+.gallery {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gallery img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.gallery img:hover {
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.30);
+}
+
+main {
+    padding: 1rem;
+}
+
+.btn, button {
+    background: linear-gradient(90deg, #e66465, #9198e5);
+    border: none;
+    padding: 0.7em 1.5em;
+    border-radius: 24px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn:hover, button:hover {
+    background: linear-gradient(90deg, #9198e5, #e66465);
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/* Fade-in effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s, transform 0.7s;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark mode */
+body.dark-mode {
+    background: #181818;
+    color: #f4f4f4;
+}
+body.dark-mode header,
+body.dark-mode footer {
+    background: #222;
+}
+body.dark-mode nav ul {
+    background: #222;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        background: #444;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 60px;
+    }
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+    nav.active .nav-list {
+        display: flex;
+    }
+}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Anime Spot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to The Anime Spot</h1>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+    </header>
+    <nav>
+        <button class="menu-toggle" aria-label="Open navigation">&#9776;</button>
+        <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home" class="fade-in">
+            <h2>Home</h2>
+            <p>Discover the world of Anime here!</p>
+        </section>
+        <section id="gallery" class="fade-in">
+            <h2>Anime Gallery</h2>
+            <div class="gallery">
+                <img src="anime1.jpg" alt="Anime 1">
+                <img src="anime2.jpg" alt="Anime 2">
+                <img src="anime3.jpg" alt="Anime 3">
+                <!-- Add more images as needed -->
+            </div>
+        </section>
+        <section id="about" class="fade-in">
+            <h2>About</h2>
+            <p>This website is dedicated to Anime fans worldwide.</p>
+        </section>
+        <section id="contact" class="fade-in">
+            <h2>Contact</h2>
+            <form>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 The Anime Spot. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
 </html>
