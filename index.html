@@ -5,89 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Anime Spot</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body { font-family: 'Poppins', sans-serif; margin: 0; background: linear-gradient(to bottom, #121212, #1e1e1e); color: #f0f0f0; }
-    header { background: #0a0a0a; padding: 1rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.6); }
-    header h1 { color: #ff004f; margin: 0; }
-    nav ul { display: flex; justify-content: center; gap: 2rem; list-style: none; padding: 0; }
-    nav a { text-decoration: none; color: #f0f0f0; font-weight: 600; transition: color 0.3s ease; }
-    nav a:hover { color: #ff004f; }
-    main { padding: 2rem; }
-    section { margin-bottom: 4rem; }
-    h2 { border-bottom: 2px solid #ff004f; padding-bottom: 0.5rem; color: #fff; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-    .card { background: #ffffff10; backdrop-filter: blur(10px); padding: 1rem; border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 6px 15px rgba(255,0,79,0.4); }
-    .card h3 { color: #fff; margin-top: 0; }
-    .card p { color: #ccc; font-size: 0.9rem; }
-    .comment-box { margin-top: 1rem; }
-    .comment-box textarea { width: 100%; padding: 0.5rem; border-radius: 8px; border: none; resize: vertical; }
-    .comment-box button { margin-top: 0.5rem; padding: 0.5rem 1rem; background-color: #ff004f; color: white; border: none; border-radius: 8px; cursor: pointer; }
-    .comment-box button:hover { background-color: #e60045; }
-    .comment-list { margin-top: 1rem; }
-    .comment-list p { background-color: #1e1e1e; padding: 0.5rem; border-radius: 6px; margin-bottom: 0.5rem; }
-    .auth-form { background: #1e1e1e; padding: 2rem; max-width: 400px; margin: auto; border-radius: 12px; }
-    .auth-form input { width: 100%; padding: 0.75rem; margin: 0.5rem 0; border: none; border-radius: 8px; }
-    .auth-form button { width: 100%; padding: 0.75rem; background-color: #ff004f; color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 1rem; }
-    .auth-form button:hover { background-color: #e60045; }
-    footer { text-align: center; padding: 1rem; background: #0a0a0a; color: #888; }
-    #searchInput { width: 100%; padding: 0.75rem; border-radius: 10px; border: none; margin-bottom: 2rem; }
+    body { font-family: 'Poppins', sans-serif; margin: 0; background: #121212; color: #fff; }
+    header, footer { background: #1e1e1e; text-align: center; padding: 1rem; }
+    h1, h2 { color: #ff004f; }
+    nav ul { display: flex; justify-content: center; list-style: none; padding: 0; margin: 1rem 0; }
+    nav li { margin: 0 1rem; }
+    nav a { color: #fff; text-decoration: none; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .card { background: #2a2a2a; padding: 1rem; border-radius: 10px; }
+    .card h3 { margin-top: 0; }
   </style>
-  <script defer>
-    const generatePosts = (sectionId, count, titlePrefix) => {
-      const section = document.querySelector(`#${sectionId} .grid`);
-      for (let i = 1; i <= count; i++) {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `<h3>${titlePrefix} Post #${i}</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel risus commodo.</p>`;
-        section.appendChild(card);
-      }
-    };
-
-    const addCommentSection = () => {
-      const donateSection = document.querySelector('#donate');
-      const commentBox = document.createElement('div');
-      commentBox.className = 'comment-box';
-      commentBox.innerHTML = `
-        <h3>Leave a Comment</h3>
-        <textarea id="commentText" rows="4" placeholder="Write your comment..."></textarea>
-        <button onclick="postComment()">Post Comment</button>
-        <div class="comment-list" id="commentList"></div>
-      `;
-      donateSection.appendChild(commentBox);
-    };
-
-    const postComment = () => {
-      const commentText = document.getElementById('commentText');
-      const commentList = document.getElementById('commentList');
-      if (commentText.value.trim()) {
-        const comment = document.createElement('p');
-        comment.textContent = commentText.value;
-        commentList.appendChild(comment);
-        commentText.value = '';
-      }
-    };
-
-    const setupSearch = () => {
-      const searchInput = document.getElementById('searchInput');
-      searchInput.addEventListener('input', () => {
-        const searchTerm = searchInput.value.toLowerCase();
-        document.querySelectorAll('.card').forEach(card => {
-          card.style.display = card.textContent.toLowerCase().includes(searchTerm) ? '' : 'none';
-        });
-      });
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-      generatePosts('news', 10, 'News');
-      generatePosts('releases', 10, 'Release');
-      generatePosts('updates', 10, 'Update');
-      generatePosts('manga', 10, 'Manga');
-      addCommentSection();
-      setupSearch();
-    });
-  </script>
 </head>
 <body>
   <header>
@@ -95,55 +23,52 @@
     <nav>
       <ul>
         <li><a href="#news">News</a></li>
-        <li><a href="#releases">New Releases</a></li>
+        <li><a href="#releases">Releases</a></li>
         <li><a href="#updates">Updates</a></li>
         <li><a href="#manga">Manga</a></li>
-        <li><a href="#login">Login</a></li>
-        <li><a href="#donate">Donate</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <input type="text" id="searchInput" placeholder="Search posts..." />
-
     <section id="news">
-      <h2>Latest Anime News</h2>
+      <h2>Anime News</h2>
       <div class="grid"></div>
     </section>
-
     <section id="releases">
       <h2>New Releases</h2>
       <div class="grid"></div>
     </section>
-
     <section id="updates">
-      <h2>Anime Updates</h2>
+      <h2>Updates</h2>
       <div class="grid"></div>
     </section>
-
     <section id="manga">
-      <h2>Manga Highlights</h2>
+      <h2>Manga</h2>
       <div class="grid"></div>
-    </section>
-
-    <section id="donate">
-      <h2>Support Us</h2>
-      <p>You can support The Anime Spot via MTN Mobile Money: <strong>0961773769</strong></p>
-    </section>
-
-    <section id="login">
-      <h2>Login</h2>
-      <form class="auth-form">
-        <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-      </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 The Anime Spot. All rights reserved.</p>
+    <p>&copy; 2025 The Anime Spot</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('posts.json')
+        .then(res => res.json())
+        .then(data => {
+          ['news', 'releases', 'updates', 'manga'].forEach(category => {
+            const section = document.querySelector(`#${category} .grid`);
+            data[category].forEach(post => {
+              const card = document.createElement('div');
+              card.className = 'card';
+              card.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p>`;
+              section.appendChild(card);
+            });
+          });
+        });
+    });
+  </script>
 </body>
 </html>

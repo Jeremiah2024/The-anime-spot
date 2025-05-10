@@ -1,0 +1,30 @@
+{
+  "news": [
+    {
+      "title": "One Piece Live Action Breaks Records",
+      "body": "Netflix\u2019s adaptation is a hit among fans worldwide."
+    },
+    {
+      "title": "Bleach TYBW Returns",
+      "body": "The Thousand-Year Blood War arc continues this fall."
+    }
+  ],
+  "releases": [
+    {
+      "title": "Solo Leveling Premieres",
+      "body": "The most anticipated anime of 2025 has arrived."
+    }
+  ],
+  "updates": [
+    {
+      "title": "My Hero Academia Delayed",
+      "body": "Season 7 pushed back due to production issues."
+    }
+  ],
+  "manga": [
+    {
+      "title": "Chainsaw Man Manga Shocker",
+      "body": "Denji faces his darkest hour in the latest chapter."
+    }
+  ]
+}
